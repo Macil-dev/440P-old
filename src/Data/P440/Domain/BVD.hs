@@ -3,7 +3,6 @@ module Data.P440.Domain.BVD where
 
 import Data.P440.Domain.SimpleTypes
 import Data.P440.Domain.ComplexTypes
-import Data.P440.Domain.ComplexTypesZS (НаДатуИлиЗаПериод, СвБанкИлиСвУБР)
 
 import Data.Typeable (Typeable)
 
