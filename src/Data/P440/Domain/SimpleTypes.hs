@@ -26,4 +26,6 @@ newtype Date = Date Text deriving (Eq, Show, Typeable)
 
 newtype Time = Time Text deriving (Eq, Show, Typeable)
 
+newtype DateTime = DateTime Text deriving (Eq, Show, Typeable)
+
 newtype GUID = GUID Text deriving (Eq, Show, Typeable)
