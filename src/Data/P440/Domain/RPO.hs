@@ -38,13 +38,13 @@ data РешПриост = РешПриост {
 } deriving (Eq, Show, Typeable)
 
 data СвПл = СвПл {
-     плательщик :: ЮЛИлиИП
-    ,адрПлат :: АдрРФ
+     плательщик :: ПлЮЛИлиПлИП
+    ,адрПлат    :: АдрРФ
 } deriving (Eq, Show, Typeable)
 
-data ЮЛИлиИП = ЮЛ ПлЮЛ
-             | ИП ПлФЛ
-             deriving (Eq, Show, Typeable)
+data ПлЮЛИлиПлИП = ПлЮЛ' ПлЮЛ
+                 | ПлИП' ПлФЛ
+                 deriving (Eq, Show, Typeable)
 
 data Счет = Счет {
      номСч :: Text
