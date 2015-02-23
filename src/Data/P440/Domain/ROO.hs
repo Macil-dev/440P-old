@@ -24,8 +24,8 @@ data РешОтмена = РешОтмена {
     ,датаПодп   :: Date
     ,видРеш     :: Text
     ,номРешВО   :: Maybe Text
-    ,датаРешВО  :: Maybe Text
-    ,номерРешПр :: Text
+    ,датаРешВО  :: Maybe Date
+    ,номРешПр   :: Text
     ,датаРешПр  :: Date
     ,бик        :: БИК
     ,наимБ      :: Text
@@ -38,13 +38,13 @@ data РешОтмена = РешОтмена {
 } deriving (Eq, Show, Typeable)
 
 data СвПл = СвПл {
-     плательщик :: ЮЛИлиИП
+     плательщик :: ПлЮЛИлиПлИП
     ,адрПлат :: АдрРФ
 } deriving (Eq, Show, Typeable)
 
-data ЮЛИлиИП = ЮЛ ПлЮЛ
-             | ИП ПлФЛ
-             deriving (Eq, Show, Typeable)
+data ПлЮЛИлиПлИП = ПлЮЛ' ПлЮЛ
+                |  ПлИП' ПлФЛ
+                deriving (Eq, Show, Typeable)
 
 data Счет = Счет {
      номСч :: Text
