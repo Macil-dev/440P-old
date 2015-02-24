@@ -18,11 +18,13 @@ instance ToNode Node where
 class ToSequence a where
     toSequence :: a -> [Node]
 
-data Sequence where
-    Sequence :: ToSequence s => s -> Sequence
+data Children where
+    Sequence :: ToSequence s => s -> Children
+    Single :: ToNode n => n -> Children
 
-instance ToSequence Sequence where
+instance ToSequence Children where
     toSequence (Sequence s) = toSequence s
+    toSequence (Single n) = [toNode n]
 
 instance (ToNode a) => ToSequence [a] where
     toSequence = map toNode
@@ -59,10 +61,7 @@ complex_ name attributes' =
     NodeElement $
         Element name (attributes attributes') []
 
-complex :: Name -> [(Name, Maybe Text)] -> [Sequence] -> Node
+complex :: (ToSequence c) => Name -> [(Name, Maybe Text)] -> [c] -> Node
 complex name attributes' content =
     NodeElement $
-        Element name (attributes attributes') (sequence content)
-
-sequence :: [Sequence] -> [Node]
-sequence = concatMap toSequence
+        Element name (attributes attributes') (concatMap toSequence content)
