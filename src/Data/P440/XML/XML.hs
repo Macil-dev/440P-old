@@ -1,6 +1,8 @@
 {-#LANGUAGE GADTs#-}
 module Data.P440.XML.XML where
 
+import Data.P440.XML.Parser (Parser)
+
 import Prelude hiding (sequence)
 
 import Data.Text (Text)
@@ -65,3 +67,6 @@ complex :: (ToSequence c) => Name -> [(Name, Maybe Text)] -> [c] -> Node
 complex name attributes' content =
     NodeElement $
         Element name (attributes attributes') (concatMap toSequence content)
+
+class FromXML a where
+    fromXML :: Parser a
