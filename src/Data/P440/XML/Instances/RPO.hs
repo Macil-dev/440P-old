@@ -1,3 +1,4 @@
+{-#LANGUAGE OverloadedStrings#-}
 module Data.P440.XML.Instances.RPO where
 
 import qualified Data.P440.Domain.RPO as RPO

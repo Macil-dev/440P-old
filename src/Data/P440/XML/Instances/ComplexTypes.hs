@@ -1,3 +1,4 @@
+{-#LANGUAGE OverloadedStrings#-}
 module Data.P440.XML.Instances.ComplexTypes where
 
 import Data.P440.XML.XML

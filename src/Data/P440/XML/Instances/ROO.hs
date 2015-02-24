@@ -1,3 +1,4 @@
+{-#LANGUAGE OverloadedStrings#-}
 module Data.P440.XML.Instances.ROO where
 
 import qualified Data.P440.Domain.ROO as ROO
