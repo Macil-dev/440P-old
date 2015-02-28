@@ -40,7 +40,7 @@ data ПриостПоруч = ПриостПоруч {
     ,датаПоруч :: Date
     ,видСч     :: Maybe Text
     ,сумма     :: Maybe Text
-    ,номСчПлИлиКЭСП :: Maybe Text
+    ,номСчПлИлиКЭСП :: Maybe НомСчПлИлиКЭСП
 } deriving (Eq, Show, Typeable)
 
 data НомСчПлИлиКЭСП = Счет НомСч
