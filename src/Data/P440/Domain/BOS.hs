@@ -48,7 +48,7 @@ data ОстСч = ОстСч {
     ,датаОткрСч :: Date
     ,датаЗакрСч :: Maybe Date
     ,кодВалСч   :: Text
-    ,отстатокСч :: Text
+    ,остатокСч  :: Text
 } deriving (Eq, Show, Typeable)
 
 data ОстВклад = ОстВклад {
@@ -65,7 +65,8 @@ data ОстВклад = ОстВклад {
 
 data ОстЭДС = ОстЭДС {
      идЭСП       :: Text
-    ,датаЗакрЭДС :: Maybe Text
+    ,датаОткрЭДС :: Date
+    ,датаЗакрЭДС :: Maybe Date
     ,кодВалЭДС   :: Text
     ,остатокЭДС  :: Text
 } deriving (Eq, Show, Typeable)
