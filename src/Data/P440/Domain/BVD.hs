@@ -35,7 +35,7 @@ data Операции = Операции {
     ,датаОпер  :: Text
     ,времяОпер :: Maybe Text
     ,назнПл    :: Maybe Text
-    ,ипАддр    :: Maybe Text
+    ,ипАдр     :: Maybe Text
     ,номТел    :: Maybe Text
     ,кодПерев  :: Maybe Text
 } deriving (Eq, Show, Typeable)
