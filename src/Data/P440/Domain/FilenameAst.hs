@@ -51,6 +51,7 @@ data FNSAck =
            } deriving (Eq, Show, Typeable)
 
 data FNSAckName = Reply'  Reply
+                | AdditionalReply' AdditionalReply
                 | KOAck1' KOAck1
                 | KOAck2' KOAck2
                 deriving (Eq, Show, Typeable)

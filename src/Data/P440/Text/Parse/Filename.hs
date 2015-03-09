@@ -60,8 +60,8 @@ fnsAck = AST.FNSAck <$> string "KWT"
 
 fnsAckName' =   AST.KOAck1' <$> koAck1
             <|> AST.KOAck2' <$> koAck2
+            <|> AST.AdditionalReply' <$> additionalReply
             <|> AST.Reply'  <$> reply
-
 
 koAck1 :: Parser AST.KOAck1
 koAck1 =
