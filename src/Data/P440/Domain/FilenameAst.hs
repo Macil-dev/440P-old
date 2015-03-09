@@ -8,6 +8,7 @@ import Data.Text
 data Message =
     Message {messagePrefix   :: Text
             ,messageResend   :: Text
+            ,messageBIC      :: Text
             ,messageTaxcode  :: Text
             ,messageFiledate :: (Text, Text, Text)
             ,messageNumber   :: Text

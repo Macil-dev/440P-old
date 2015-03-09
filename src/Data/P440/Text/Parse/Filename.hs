@@ -18,6 +18,7 @@ message :: Parser AST.Message
 message =
     AST.Message <$> takeWhile1 isAlpha
                 <*> (T.singleton <$> digit)
+                <*> (take 7)
                 <*> (char '_' *> take 4)
                 <*> ((,,) <$> take 4 <*> take 2 <*> take 2)
                 <*> (char '_' *> take 6)
