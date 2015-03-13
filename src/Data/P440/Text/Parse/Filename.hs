@@ -30,14 +30,11 @@ reply =
               <*> (char '_' *> message)
               <*> (char '_' *> take 4)
 
-additionalReply :: Parser AST.AdditionalReply
-additionalReply =
-    AST.AdditionalReply <$> takeWhile1 isAlpha
-                        <*> (T.singleton <$> digit)
-                        <*> (char '_' *> message)
-                        <*> (char '_' *> take 4)
-                        <*> (char '_' *> take 6)
-                        <*> (char '_' *> take 6)
+auxReply :: Parser AST.AuxReply
+auxReply =
+    AST.AuxReply <$> reply
+                 <*> (char '_' *> take 6)
+                 <*> (char '_' *> take 6)
 
 transport :: Parser AST.Transport
 transport =
@@ -58,10 +55,10 @@ fnsAck = AST.FNSAck <$> string "KWT"
                     <*> take 3
                     <*> (char '_' *> fnsAckName')
 
-fnsAckName' =   AST.KOAck1' <$> koAck1
-            <|> AST.KOAck2' <$> koAck2
-            <|> AST.AdditionalReply' <$> additionalReply
-            <|> AST.Reply'  <$> reply
+fnsAckName' =  AST.KOAck1'   <$> koAck1
+           <|> AST.KOAck2'   <$> koAck2
+           <|> AST.AuxReply' <$> auxReply
+           <|> AST.Reply'    <$> reply
 
 koAck1 :: Parser AST.KOAck1
 koAck1 =

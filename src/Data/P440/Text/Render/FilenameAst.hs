@@ -35,14 +35,9 @@ fromReply repl =
     <> (fromText $ replyDivision repl)
 
 
-fromAdditionalReply :: AdditionalReply -> Builder
-fromAdditionalReply arepl =
-       (fromText $ areplyPrefix arepl)
-    <> (fromText $ areplyResend arepl)
-    <> sep
-    <> (fromMessage $ areplyMessage arepl)
-    <> sep
-    <> (fromText $ areplyDivision arepl)
+fromAuxReply :: AuxReply -> Builder
+fromAuxReply arepl =
+       (fromReply $ areplyReply arepl)
     <> sep
     <> (fromText $ areplyAccountNum arepl)
     <> sep
@@ -78,7 +73,7 @@ fromFnsAckName :: FNSAckName -> Builder
 fromFnsAckName (KOAck1' kack1) = fromKOAck1 kack1
 fromFnsAckName (KOAck2' kack2) = fromKOAck2 kack2
 fromFnsAckName (Reply' repl) = fromReply repl
-fromFnsAckName (AdditionalReply' arepl) = fromAdditionalReply arepl
+fromFnsAckName (AuxReply' arepl) = fromAuxReply arepl
 
 fromKOAck1 :: KOAck1 -> Builder
 fromKOAck1 kack1 =

@@ -21,14 +21,11 @@ data Reply =
           ,replyDivision :: Text
           } deriving (Eq, Show, Typeable)
 
-data AdditionalReply =
-    AdditionalReply {areplyPrefix     :: Text
-                    ,areplyResend     :: Text
-                    ,areplyMessage    :: Message
-                    ,areplyDivision   :: Text
-                    ,areplyAccountNum :: Text
-                    ,areplyFilenum    :: Text
-                    } deriving (Eq, Show, Typeable)
+data AuxReply =
+    AuxReply {areplyReply :: Reply
+             ,areplyAccountNum :: Text
+             ,areplyFilenum    :: Text
+             } deriving (Eq, Show, Typeable)
 
 data Transport =
     Transport {transportPrefix   :: Text
@@ -51,7 +48,7 @@ data FNSAck =
            } deriving (Eq, Show, Typeable)
 
 data FNSAckName = Reply'  Reply
-                | AdditionalReply' AdditionalReply
+                | AuxReply' AuxReply
                 | KOAck1' KOAck1
                 | KOAck2' KOAck2
                 deriving (Eq, Show, Typeable)
