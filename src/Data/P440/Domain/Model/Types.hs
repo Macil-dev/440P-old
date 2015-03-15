@@ -41,3 +41,9 @@ class ЕстьБанк a where
 
 class ЕстьБИК a where
     бик :: Lens' a БИК
+
+class ЕстьСвНО a where
+    свНО :: Lens' a C.СвНО
+
+class EстьКодНО a where
+    кодНО :: Lens' a ИФНС
