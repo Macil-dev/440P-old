@@ -47,3 +47,9 @@ class ЕстьСвНО a where
 
 class EстьКодНО a where
     кодНО :: Lens' a ИФНС
+
+class ЕстьДата a where
+    дата :: Lens' a Date
+
+class ЕстьНомер a where
+    номер :: Lens' a Text
