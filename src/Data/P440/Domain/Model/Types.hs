@@ -53,3 +53,9 @@ class ЕстьДата a where
 
 class ЕстьНомер a where
     номер :: Lens' a Text
+
+class ЕстьРуководительНО a where
+    руководительНО :: Lens' a C.РукНО
+
+class ЕстьПредставительБанка a where
+    представительБанка :: Lens' a C.ПредБ
