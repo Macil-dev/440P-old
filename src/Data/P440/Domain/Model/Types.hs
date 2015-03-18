@@ -10,10 +10,9 @@ import Control.Lens
 
 import Data.Text
 
-class ЭлектронныйДокумент a where
-    идДокумента   :: Lens' a Text
-    датаДокумента :: Lens' a Text
-    датаОперации  :: Lens' a Text
+class ЭлектронноеСообщение a where
+    идСообщения   :: Lens' a GUID
+    датаСообщения :: Lens' a Date
 
 data Налогоплательщик =
       НалогоплательщикЮЛ C.ПлЮЛ
